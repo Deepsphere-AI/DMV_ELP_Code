@@ -24,3 +24,4 @@ steps:
     args: ['run', 'deploy', 'dmv-elp-cloudrun-service', '--image', 'gcr.io/elp-2022-352222/dmv-elp-classification', '--region', 'us-west1']
 images:
   - gcr.io/elp-2022-352222/dmv-elp-classification
+timeout: 1800s
