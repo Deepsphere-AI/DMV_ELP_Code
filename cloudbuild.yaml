@@ -20,6 +20,11 @@ steps:
     args: ['push', 'gcr.io/elp-2022-352222/dmv-elp-classification']
   # Deploy container image to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'dmv-elp-cloudrun-service', '--image', 'gcr.io/elp-2022-352222/dmv-elp-classification', '--region', 'us-west1']
+    args: 
+    - run 
+    - deploy
+    - dmv-elp-cloudrun-service
+    - --image=gcr.io/elp-2022-352222/dmv-elp-classification
+    - --region=us-west1
   images:
   - gcr.io/elp-2022-352222/dmv-elp-classification
