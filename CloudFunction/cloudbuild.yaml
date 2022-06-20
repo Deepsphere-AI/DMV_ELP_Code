@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+    - functions
+    - deploy
+    - dmv-elp-classification-cicd
+    - --source=/CloudFunction
+    - --trigger-http
+    - --runtime=python38
+    - --entry-point=ELP_Validation
+    - --allow-unauthenticated
+    - --region=us-west1
+    - --memory=8GB

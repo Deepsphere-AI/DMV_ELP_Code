@@ -1,0 +1,26 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+    - functions
+    - deploy
+    - dmv-elp-classification-cicd
+    - --source=/CloudFunction
+    - --trigger-http
+    - --runtime=python38
+    - --entry-point=ELP_Validation
+    - --allow-unauthenticated
+    - --region=us-west1
+    - --memory=8GB
+    
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/elp-2022-352222/dmv-elp-classification', '.']
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/elp-2022-352222/dmv-elp-classification']
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: ['run', 'deploy', 'dmv-elp-cloudrun-service', '--image', 'gcr.io/elp-2022-352222/dmv-elp-classification', '--region', 'us-west1']
+  images:
+  - gcr.io/elp-2022-352222/dmv-elp-classification
