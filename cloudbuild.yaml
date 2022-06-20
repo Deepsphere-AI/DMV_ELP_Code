@@ -26,5 +26,5 @@ steps:
     - dmv-elp-cloudrun-service
     - --image=gcr.io/elp-2022-352222/dmv-elp-classification
     - --region=us-west1
-  images:
+images:
   - gcr.io/elp-2022-352222/dmv-elp-classification
