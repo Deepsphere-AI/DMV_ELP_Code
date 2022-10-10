@@ -11,7 +11,5 @@ COPY . ./
 RUN pip install -r Utility/DMV_requirements.txt
 
 
-
-
 # Sets up the entry point to invoke the trainer.
 CMD streamlit run --server.port 8080 --server.enableCORS false --global.developmentMode=false --server.headless=true DMV_App.py
