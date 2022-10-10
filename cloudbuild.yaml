@@ -11,7 +11,8 @@ steps:
     - --entry-point=ELP_Validation
     - --allow-unauthenticated
     - --region=us-west1
-    - --memory=8GB
+    - --memory=16GB
+    
     
 #   # Build the container image
 #   - name: 'gcr.io/cloud-builders/docker'
