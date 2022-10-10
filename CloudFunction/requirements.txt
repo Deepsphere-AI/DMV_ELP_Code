@@ -16,3 +16,4 @@ gcsfs
 db-dtypes
 s3fs
 boto3
+protobuf==3.18.1
