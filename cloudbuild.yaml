@@ -13,18 +13,18 @@ steps:
     - --region=us-west1
     - --memory=8GB
     
-  # Build the container image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/elp-2022-352222/dmv-elp-classification', '.']
-  # Push the container image to Container Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/elp-2022-352222/dmv-elp-classification']
-  # Deploy container image to Cloud Run
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
-    args: ['run', 'deploy', 'dmv-elp-cloudrun-service', '--image', 'gcr.io/elp-2022-352222/dmv-elp-classification', '--region', 'us-west1']
-images:
-  - gcr.io/elp-2022-352222/dmv-elp-classification
+#   # Build the container image
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['build', '-t', 'gcr.io/elp-2022-352222/dmv-elp-classification', '.']
+#   # Push the container image to Container Registry
+#   - name: 'gcr.io/cloud-builders/docker'
+#     args: ['push', 'gcr.io/elp-2022-352222/dmv-elp-classification']
+#   # Deploy container image to Cloud Run
+#   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#     entrypoint: gcloud
+#     args: ['run', 'deploy', 'dmv-elp-cloudrun-service', '--image', 'gcr.io/elp-2022-352222/dmv-elp-classification', '--region', 'us-west1']
+# images:
+#   - gcr.io/elp-2022-352222/dmv-elp-classification
 timeout: 1800s
 options:
   logging: CLOUD_LOGGING_ONLY
