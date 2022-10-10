@@ -4,6 +4,7 @@ steps:
     - functions
     - deploy
     - dmv-elp-classification-cicd
+    - --gen2
     - --source=CloudFunction/
     - --trigger-http
     - --runtime=python38

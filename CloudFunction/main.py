@@ -17,6 +17,8 @@ import os
 import datetime
 import traceback
 
+os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"
+
 
 def ELP_Validation(request):
     """Responds to any HTTP request.
